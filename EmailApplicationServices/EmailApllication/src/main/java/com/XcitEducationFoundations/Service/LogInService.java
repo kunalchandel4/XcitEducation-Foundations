@@ -12,5 +12,5 @@ public interface LogInService {
 
 	public CurrentUserSession loginUser(UserDTO dto) throws UserException;
 
-	public String signOutUser(String key) throws UserException;
+	public Boolean signOutUser(String key) throws UserException;
 }
