@@ -31,7 +31,7 @@ public class EmailBody {
 	@NotEmpty
 	@NotNull
 	private String msg;
-	@Email
+	
 	@NotNull
 	@NotBlank
 	@NotEmpty

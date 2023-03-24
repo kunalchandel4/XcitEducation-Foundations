@@ -42,6 +42,16 @@ public class Controller {
 
 	private CurrentUserSession check;
 
+	@PostMapping("/sendManyEmail")
+	public ResponseEntity<?> SendManyEmailHandler(@Valid @RequestBody EmailBody body, @RequestParam String uuid)
+			throws UserException, MessagingException, LoginException {
+
+		this.setCheck(logService.getSessionByUuid(uuid));
+		String result = emailService.sendTextToManyEmail(body);
+
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+
 	@PostMapping("/sendEmail")
 	public ResponseEntity<?> SendEmailHandler(@Valid @RequestBody EmailBody body, @RequestParam String uuid)
 			throws UserException, MessagingException, LoginException {
@@ -52,7 +62,6 @@ public class Controller {
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
-
 	@PostMapping(value = "/sendEmailWithAttachment")
 	public ResponseEntity<?> SendEmailWithAttachmentHandler(@RequestParam("uuid") String uuid,
 			@RequestParam("body") String body, @RequestParam("file") MultipartFile file)
@@ -60,15 +69,32 @@ public class Controller {
 
 		this.setCheck(logService.getSessionByUuid(uuid));
 
-		
-//		logger.info(" Body {} ", body);
+		logger.info(" Body {} ", body);
+
+//		converting STring into Json
+		System.out.println("Present ");
+
+		EmailBody mainBody = mapper.readValue(body, EmailBody.class);
+
+		String result = emailService.sendTextWithAttachmentEmail(mainBody, file);
+
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+
+	@PostMapping(value = "/SendEmailWithAttachmentToMany")
+	public ResponseEntity<?> SendEmailWithAttachmentToManyHandler(@RequestParam("uuid") String uuid,
+			@RequestParam("body") String body, @RequestParam("file") MultipartFile file)
+			throws UserException, MessagingException, LoginException, IOException {
+
+		this.setCheck(logService.getSessionByUuid(uuid));
+
+		logger.info(" Body {} ", body);
 
 //		converting STring into Json
 
 		EmailBody mainBody = mapper.readValue(body, EmailBody.class);
-		
 
-		String result = emailService.sendTextWithAttachmentEmail(mainBody,file);
+		String result = emailService.sendTextWithAttachmentEmail(mainBody, file);
 
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}

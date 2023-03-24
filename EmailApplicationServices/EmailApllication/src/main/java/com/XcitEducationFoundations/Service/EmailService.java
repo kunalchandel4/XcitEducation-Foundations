@@ -11,5 +11,11 @@ import com.XcitEducationFoundations.Entity.EmailBody;
 public interface EmailService {
 	public String sendTextToEmail(EmailBody body) throws MessagingException;
 
-	public String sendTextWithAttachmentEmail(EmailBody mainBody, MultipartFile file) throws MessagingException, IOException;
+	public String sendTextToManyEmail(EmailBody body) throws MessagingException;
+
+	public String sendTextWithAttachmentToManyEmail(EmailBody body, MultipartFile file)
+			throws MessagingException, IOException;
+
+	public String sendTextWithAttachmentEmail(EmailBody mainBody, MultipartFile file)
+			throws MessagingException, IOException;
 }
