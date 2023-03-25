@@ -1,0 +1,156 @@
+*{
+    box-sizing: border-box;
+
+}
+:root{
+    --primary-color:#e2e3ee ;
+    --secondary-color:#999cc5 ;
+
+}
+body{
+    background-color: var(--primary-color);
+    font-family: "Poppins",sans-serif;
+    margin: 0;
+}
+header{
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--secondary-color);
+}
+
+.search{
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    color:#fff;
+    font-family: inherit;
+}
+
+.search:focus{
+    outline: 0;
+    background-color: var(--primary-color);
+}
+.search::placeholder{
+    color: #7378c5;
+}
+main{
+   
+    width: 70%;
+    display: flex;
+flex-wrap: wrap;
+justify-content: center;
+
+}
+h3{
+    cursor: pointer;
+}
+#patch{
+    color: white;
+    
+}
+.movie{
+    width: 300px;
+    border: 3px solid red;
+    margin: 1rem;
+    border-radius: 30px;
+    box-shadow: 0.2px 4px 5px rgba(0, 0,0, 0.1);
+    background-color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+    padding: 15px 0px;
+}
+.dd{
+    position: absolute;
+    top: -18px;
+text-align: center;
+padding-top: 5px;
+    width: 25%;
+    height: 30px;
+    background-color: black;
+    color: white;
+}
+.movie img{
+    width: 80%;
+    height: 100px;
+}
+.movie-info{
+    color: #eee;
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+.movie-info h3{
+    margin-top: 0px;
+  
+}
+.movie-info h4{
+  
+   margin-top: -25px;
+}
+#btn{
+    background-color: var(--primary-color);
+    display: block;
+    color: rgb(196, 141, 39);
+    font-weight: bolder;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    margin: 0 30%;
+    padding: 5px 10px;
+}
+#btn:hover{
+    cursor: pointer;
+    background-color: rebeccapurple;
+}
+#image_con{
+    border-radius: 10px;
+    
+}
+.movie-info span{
+    background-color: var(--primary-color);
+    
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.movie-info span.green{
+    color: lightgreen;
+}
+
+.movie-info span.green{
+    color: orange;
+}
+.movie-info span.green{
+    color: red;
+}
+
+
+#image_con{
+    width: 100%;
+    height: 300px;
+}
+#navbr{
+    width: 100%;
+    height: 60px;
+   display: flex;
+  
+   justify-content: flex-end;
+   
+   gap: 30px;
+   
+  
+    background-color: var(--secondary-color);
+}
+#navbr h3{
+margin-right: 20px;
+}
+
+#navbr>h2{
+margin: 15px 100px;
+}
+
+ 
